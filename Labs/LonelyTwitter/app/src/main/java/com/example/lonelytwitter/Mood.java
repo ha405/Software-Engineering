@@ -4,23 +4,32 @@ import java.util.Date;
 
 public abstract class Mood {
     
-    private Date recordedAt;
+    private Date timestamp;
     
-    public Mood() {
-        this.recordedAt = new Date();
+    protected Mood() {
+        this.timestamp = new Date();
     }
 
-    public Mood(Date moodTimestamp) {
-        this.recordedAt = moodTimestamp;
+    protected Mood(Date when) {
+        this.timestamp = when;
     }
 
-    public Date getRecordedAt() {
-        return this.recordedAt;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setRecordedAt(Date newTimestamp) {
-        this.recordedAt = newTimestamp;
+    public void setTimestamp(Date when) {
+        this.timestamp = when;
+    }
+    
+    public long getAgeInMillis() {
+        return new Date().getTime() - timestamp.getTime();
     }
 
-    public abstract String describeMood();
+    public abstract String expressFeeling();
+    
+    @Override
+    public String toString() {
+        return expressFeeling() + " at " + timestamp.toString();
+    }
 }

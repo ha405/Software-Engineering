@@ -4,16 +4,22 @@ import java.util.Date;
 
 public class SadMood extends Mood {
 
+    private static final String FEELING = "Gloomy";
+
     public SadMood() {
         super();
     }
 
-    public SadMood(Date moodTimestamp) {
-        super(moodTimestamp);
+    public SadMood(Date when) {
+        super(when);
     }
 
     @Override
-    public String describeMood() {
-        return "Melancholy";
+    public String expressFeeling() {
+        return FEELING;
+    }
+    
+    public boolean isPositive() {
+        return false;
     }
 }

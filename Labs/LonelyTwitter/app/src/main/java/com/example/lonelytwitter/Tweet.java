@@ -4,36 +4,46 @@ import java.util.Date;
 
 public abstract class Tweet implements Tweetable {
     
-    private Date creationTimestamp;
-    private String content;
+    private String textBody;
+    private Date postedOn;
 
-    public Tweet(String tweetContent) {
-        this.content = tweetContent;
-        this.creationTimestamp = new Date();
+    protected Tweet(String body) {
+        this.textBody = body;
+        this.postedOn = new Date();
     }
 
-    public Tweet(Date timestamp, String tweetContent) {
-        this.creationTimestamp = timestamp;
-        this.content = tweetContent;
-    }
-
-    @Override
-    public Date retrieveTimestamp() {
-        return this.creationTimestamp;
-    }
-
-    public void updateTimestamp(Date newTimestamp) {
-        this.creationTimestamp = newTimestamp;
+    protected Tweet(String body, Date when) {
+        this.textBody = body;
+        this.postedOn = when;
     }
 
     @Override
-    public String retrieveContent() {
-        return this.content;
+    public String fetchText() {
+        return textBody;
     }
 
-    public void updateContent(String newContent) {
-        this.content = newContent;
+    @Override
+    public Date fetchCreatedOn() {
+        return postedOn;
     }
 
-    public abstract Boolean checkIfImportant();
+    public void modifyText(String newBody) {
+        this.textBody = newBody;
+    }
+
+    public void modifyPostedOn(Date newDate) {
+        this.postedOn = newDate;
+    }
+
+    public int calculateLength() {
+        return this.textBody != null ? this.textBody.length() : 0;
+    }
+
+    @Override
+    public abstract Boolean hasPriority();
+    
+    @Override
+    public String toString() {
+        return textBody + " [" + postedOn.toString() + "]";
+    }
 }

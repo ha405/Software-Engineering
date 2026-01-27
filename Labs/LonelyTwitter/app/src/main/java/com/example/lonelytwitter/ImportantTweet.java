@@ -4,16 +4,22 @@ import java.util.Date;
 
 public class ImportantTweet extends Tweet {
 
-    public ImportantTweet(String tweetContent) {
-        super(tweetContent);
+    private static final Boolean PRIORITY_FLAG = Boolean.TRUE;
+
+    public ImportantTweet(String body) {
+        super(body);
     }
 
-    public ImportantTweet(Date timestamp, String tweetContent) {
-        super(timestamp, tweetContent);
+    public ImportantTweet(String body, Date when) {
+        super(body, when);
     }
 
     @Override
-    public Boolean checkIfImportant() {
-        return Boolean.TRUE;
+    public Boolean hasPriority() {
+        return PRIORITY_FLAG;
+    }
+    
+    public String getFormattedOutput() {
+        return "[!] " + fetchText();
     }
 }
