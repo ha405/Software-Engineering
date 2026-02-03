@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ListyCity</string>
+
+    <!-- strings for my activity -->
+    <string name="add_city_button_text">ADD CITY</string>
+    <string name="delete_city_button_text">DELETE CITY</string>
+    <string name="city_name_hint">Enter City Name</string>
+    <string name="confirm_button_text">CONFIRM</string>
+</resources>
