@@ -48,5 +48,6 @@ dependencies {
     // adding library for Firestore
     implementation("com.google.firebase:firebase-firestore")
 
-
+    // adding library for Analytics (as per instructions)
+    implementation("com.google.firebase:firebase-analytics")
 }
