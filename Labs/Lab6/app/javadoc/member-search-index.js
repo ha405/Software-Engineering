@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.example.listycity","c":"CityListTest","l":"CityListTest()","u":"%3Cinit%3E()"}];updateSearchResults();
